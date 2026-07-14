@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>La Corte Dice Tributaria — Presentación Institucional</title>
+<title>#LaCorteDice Tributaria — Presentación Institucional</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
@@ -31,8 +31,10 @@ nav {
   font-family: var(--serif); font-size: 17px; font-weight: 700;
   color: #fff; text-decoration: none; pointer-events: all;
   text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  display: flex; align-items: center; gap: 9px;
 }
 .nav-brand em { color: var(--gold); font-style: normal; }
+.nav-logo { height: 28px; width: auto; flex-shrink: 0; }
 
 /* nav dots — right side */
 .nav-dots {
@@ -72,6 +74,10 @@ nav {
     radial-gradient(ellipse 50% 40% at 15% 75%, rgba(201,168,76,0.06) 0%, transparent 55%);
 }
 .hero > * { position: relative; z-index: 1; }
+.hero-logo {
+  width: clamp(90px, 11vw, 100px); height: auto;
+  margin-bottom: 28px; filter: drop-shadow(0 4px 20px rgba(0,0,0,0.6));
+}
 .hero-eyebrow {
   font-size: 10.5px; font-weight: 700; text-transform: uppercase;
   letter-spacing: 0.14em; color: var(--gold);
@@ -81,7 +87,7 @@ nav {
 }
 .hero h1 {
   font-family: var(--serif);
-  font-size: clamp(60px, 10vw, 118px);
+  font-size: clamp(60px, 10vw, 110px);
   font-weight: 700; line-height: 0.92; color: #fff; margin-bottom: 28px;
 }
 .hero h1 em { color: var(--gold); font-style: normal; display: block; }
@@ -262,6 +268,7 @@ nav {
   background: radial-gradient(ellipse 60% 50% at 50% 10%, rgba(201,168,76,0.08) 0%, transparent 70%);
 }
 .cierre > * { position: relative; z-index: 1; }
+.cierre-logo { width: 88px; height: auto; margin-bottom: 32px; filter: drop-shadow(0 4px 24px rgba(0,0,0,0.5)); }
 .cierre h2 { font-family: var(--serif); font-size: clamp(40px,6.5vw,76px); font-weight: 700; color: #fff; line-height: 1.0; margin-bottom: 20px; }
 .cierre h2 em { color: var(--gold); font-style: normal; }
 .cierre p  { font-size: 15px; color: rgba(255,255,255,0.38); max-width: 420px; margin: 0 auto 44px; line-height: 1.7; }
@@ -293,7 +300,10 @@ nav {
 <body>
 
 <nav>
-  <a class="nav-brand" href="#s0">La Corte Dice <em>Tributaria</em></a>
+  <a class="nav-brand" href="#s0">
+    <img class="nav-logo" src="https://lacortedicetributaria.com/assets/logo-buho.png" alt="logo">
+    #LaCorteDice <em>Tributaria</em>
+  </a>
 </nav>
 <div class="nav-dots" id="navDots"></div>
 
@@ -302,9 +312,10 @@ nav {
      0. HERO
 ════════════════════════════════════════ -->
 <section class="hero" id="s0" data-label="Inicio">
-  <span class="hero-eyebrow">Repositorio Tributario del Ecuador</span>
-  <h1>La Corte Dice<em>Tributaria</em></h1>
-  <p class="hero-sub">Jurisprudencia tributaria ecuatoriana organizada, analizada y lista para quien litiga.</p>
+  <img class="hero-logo" src="https://lacortedicetributaria.com/assets/logo-buho.png" alt="LaCorteDice Tributaria">
+  <span class="hero-eyebrow">Repositorio Tributario</span>
+  <h1>#LaCorteDice<em>Tributaria</em></h1>
+  <p class="hero-sub">La jurisprudencia tributaria, sintetizada y estructurada para facilitar el análisis jurídico.</p>
   <div class="hero-stats">
     <div class="hs"><span class="hs-n">+3.000</span><span class="hs-l">Causas tributarias con resumen estructurado</span></div>
     <div class="hs"><span class="hs-n">2020–2025</span><span class="hs-l">Registros de causas desde el año 2020 al 2025</span></div>
@@ -328,8 +339,8 @@ nav {
   </div>
   <div class="scene-copy">
     <span class="sc-label">La plataforma</span>
-    <h2 class="sc-title">Un repositorio diseñado para quien litiga</h2>
-    <p class="sc-body">Base de sentencias de los 6 tribunales con mayor volumen de causas y la Corte Nacional de Justicia. Sintetizada y estructurada para una rápida lectura de la información más relevante de la causa.</p>
+    <h2 class="sc-title">Repositorio nacional de jurisprudencia contencioso-tributaria.</h2>
+    <p class="sc-body">Reúne y estructura las sentencias emitidas en materia tributaria por los tribunales de instancia y la Corte Nacional de Justicia, facilitando la consulta, el análisis y la identificación de criterios jurisprudenciales.</p>
     <ul class="sc-bullets">
       <li>Buscador, filtros y jurimetría en una sola plataforma</li>
       <li>Datos curados desde fuentes oficiales</li>
@@ -353,7 +364,7 @@ nav {
   <div class="scene-copy right">
     <span class="sc-label">Buscador</span>
     <h2 class="sc-title">Búsqueda por texto dentro de cada causa</h2>
-    <p class="sc-body">El buscador analiza el contenido real de las sentencias — no solo metadatos. Encuentra causas por lo que el tribunal dijo.</p>
+    <p class="sc-body">El buscador analiza el contenido íntegro de las sentencias, no solo sus metadatos. Encuentre sentencias por criterios jurídicos, hechos o argumentos desarrollados por el tribunal.</p>
     <ul class="sc-bullets right-list">
       <li>Texto libre sobre cualquier campo</li>
       <li>Resultados ordenados por relevancia</li>
@@ -401,8 +412,8 @@ nav {
   </div>
   <div class="scene-copy right">
     <span class="sc-label">Detalle de causa</span>
-    <h2 class="sc-title">Toda la información de una sentencia en un solo lugar</h2>
-    <p class="sc-body">Partes, fecha, juez, decisión, jurisprudencia mencionada y criterio del tribunal — estructurado y accesible.</p>
+    <h2 class="sc-title">Toda la información relevante de una sentencia, en un solo lugar</h2>
+    <p class="sc-body">Partes, juez, fecha, decisión, jurisprudencia citada y criterios del tribunal, organizados en una ficha estructurada para agilizar el análisis jurídico.</p>
     <ul class="sc-bullets right-list">
       <li>Criterio del tribunal en texto completo</li>
       <li>Jurisprudencia citada en la sentencia</li>
@@ -425,60 +436,36 @@ nav {
   </div>
   <div class="scene-copy">
     <span class="sc-label">Causas similares</span>
-    <h2 class="sc-title">Los precedentes más parecidos, ranqueados por similitud</h2>
-    <p class="sc-body">El sistema usa similitud semántica para encontrar causas relacionadas — no por palabras clave, sino por el fondo del asunto.</p>
+    <h2 class="sc-title">Encuentre los precedentes jurídicamente más cercanos</h2>
+    <p class="sc-body">El motor de búsqueda utiliza similitud semántica para identificar sentencias relacionadas por su contenido y razonamiento jurídico, no únicamente por palabras clave.</p>
     <ul class="sc-bullets">
-      <li>Ordenados por similitud al caso</li>
-      <li>Resultado y tribunal de cada uno</li>
-      <li>Acceso directo al expediente</li>
+      <li>Ranking por similitud.</li>
+      <li>Identificación del tribunal y del resultado.</li>
+      <li>Acceso inmediato al expediente.</li>
     </ul>
   </div>
 </section>
 
 
 <!-- ═══════════════════════════════════════
-     6. FALLA TÚ — instrucciones
+     6. FALLA TÚ
 ════════════════════════════════════════ -->
 <section class="scene" id="s6" data-label="Falla Tú">
-  <div class="scene-frame">
-    <video autoplay muted loop playsinline preload="metadata">
-      <source src="https://res.cloudinary.com/zpjian5u/video/upload/v1784001160/Grabacio%CC%81n_de_pantalla_2026-07-13_a_la_s_10.52.13_p._m._jwtphm.mov" type="video/mp4">
-    </video>
-    <div class="vignette"></div>
-    <div class="sc-num">05</div>
-  </div>
-  <div class="scene-copy">
-    <span class="sc-label">Falla Tú</span>
-    <h2 class="sc-title">¿Cómo fallarías tú este caso?</h2>
-    <p class="sc-body">Ve los hechos de una causa real del repositorio y decide el resultado antes de ver la sentencia. Pon a prueba tu criterio jurídico.</p>
-    <ul class="sc-bullets">
-      <li>Casos reales anonimizados del repositorio</li>
-      <li>Tu veredicto frente al del tribunal</li>
-      <li>Aprende de cada diferencia</li>
-    </ul>
-  </div>
-</section>
-
-
-<!-- ═══════════════════════════════════════
-     7. FALLA TÚ — el juego
-════════════════════════════════════════ -->
-<section class="scene" id="s7" data-label="El juego">
   <div class="scene-frame">
     <video autoplay muted loop playsinline preload="metadata">
       <source src="https://res.cloudinary.com/zpjian5u/video/upload/v1784001164/Grabacio%CC%81n_de_pantalla_2026-07-13_a_la_s_10.50.29_p._m._u1ijgc.mov" type="video/mp4">
     </video>
     <div class="vignette"></div>
-    <div class="sc-num">06</div>
+    <div class="sc-num">05</div>
   </div>
   <div class="scene-copy right">
-    <span class="sc-label">El juego</span>
-    <h2 class="sc-title">Falla, compara y calibra tu intuición legal</h2>
-    <p class="sc-body">Cada ronda revela la sentencia real y muestra en qué coincidiste con el tribunal y en qué no. Intuición jurídica basada en datos reales.</p>
+    <span class="sc-label">Falla Tú</span>
+    <h2 class="sc-title">¿Cómo fallarías este caso?</h2>
+    <p class="sc-body">Lee una causa real anonimizada, dicta tu decisión y compárala con la sentencia del tribunal. Descubre en qué coincidiste, dónde diferiste y fortalece tu criterio jurídico.</p>
     <ul class="sc-bullets right-list">
-      <li>Resultado real vs. tu predicción</li>
-      <li>Razonamiento del tribunal al descubierto</li>
-      <li>Historial de aciertos y patrones propios</li>
+      <li>Casos reales del repositorio.</li>
+      <li>Emite tu decisión antes de conocer el fallo.</li>
+      <li>Compara tu razonamiento con el del tribunal y mide tu evolución.</li>
     </ul>
   </div>
 </section>
@@ -487,13 +474,13 @@ nav {
 <!-- ═══════════════════════════════════════
      8. ANALÍTICA
 ════════════════════════════════════════ -->
-<section class="scene" id="s8" data-label="Analítica">
+<section class="scene" id="s7" data-label="Analítica">
   <div class="scene-frame">
     <video autoplay muted loop playsinline preload="metadata">
       <source src="https://res.cloudinary.com/zpjian5u/video/upload/v1784026225/analitica_fc1mn3.mov" type="video/mp4">
     </video>
     <div class="vignette"></div>
-    <div class="sc-num">07</div>
+    <div class="sc-num">06</div>
   </div>
   <div class="scene-copy">
     <span class="sc-label">Analítica</span>
@@ -511,13 +498,13 @@ nav {
 <!-- ═══════════════════════════════════════
      9. JURIMETRÍA
 ════════════════════════════════════════ -->
-<section class="scene" id="s9" data-label="Jurimetría">
+<section class="scene" id="s8" data-label="Jurimetría">
   <div class="scene-frame">
     <video autoplay muted loop playsinline preload="metadata">
       <source src="https://res.cloudinary.com/zpjian5u/video/upload/v1784036166/Grabacio%CC%81n_de_pantalla_2026-07-14_a_la_s_8.34.57_a._m._wlhdwa.mov" type="video/mp4">
     </video>
     <div class="vignette"></div>
-    <div class="sc-num">08</div>
+    <div class="sc-num">07</div>
   </div>
   <div class="scene-copy right">
     <span class="sc-label">Jurimetría · IA</span>
@@ -535,7 +522,7 @@ nav {
 <!-- ═══════════════════════════════════════
      10. PARA EL TRIBUNAL
 ════════════════════════════════════════ -->
-<section class="tribunal-sec" id="s10" data-label="Institución">
+<section class="tribunal-sec" id="s9" data-label="Institución">
   <div class="trib-inner">
     <div class="trib-header">
       <p class="sc-label" style="font-size:11px;">Para la institución</p>
@@ -571,9 +558,10 @@ nav {
 <!-- ═══════════════════════════════════════
      10. CIERRE
 ════════════════════════════════════════ -->
-<section class="cierre" id="s11" data-label="Acceso">
+<section class="cierre" id="s10" data-label="Acceso">
+  <img class="cierre-logo" src="https://lacortedicetributaria.com/assets/logo-buho.png" alt="LaCorteDice Tributaria">
   <h2>La jurisprudencia tributaria<br><em>al alcance de quien litiga</em></h2>
-  <p>Acceso libre al buscador. Análisis avanzado con suscripción. Sin instalación, desde cualquier dispositivo.</p>
+  <p>Contactanos para acceder a todas nuestras funciones. Sin instalación, desde cualquier dispositivo.</p>
   <a class="cierre-url" href="https://lacortedicetributaria.com" target="_blank">lacortedicetributaria.com</a>
   <p class="cierre-foot">
     SRI &nbsp;·&nbsp; SENAE &nbsp;·&nbsp; Gobiernos Autónomos Descentralizados &nbsp;·&nbsp;
@@ -609,7 +597,7 @@ const io = new IntersectionObserver(entries => {
 sections.forEach(s => io.observe(s));
 
 // Reproducir solo el video visible + playbackRate según sección
-const speedMap = { 's9': 1.8 };  // jurimetría a 1.8×, el resto a 1.5×
+const speedMap = { 's8': 1.8 };  // jurimetría a 1.8×, el resto a 1.5×
 
 const vo = new IntersectionObserver(entries => {
   entries.forEach(e => {
