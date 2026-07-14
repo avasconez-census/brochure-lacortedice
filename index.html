@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#LaCorteDice Tributaria — Presentación Institucional</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --gold:  #c9a84c;
+  --ink:   #0d0d0d;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans:  'Inter', system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
+body { font-family: var(--sans); background: var(--ink); color: #fff; -webkit-font-smoothing: antialiased; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 40px; height: 52px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, transparent 100%);
+  pointer-events: none;
+}
+.nav-brand {
+  font-family: var(--serif); font-size: 17px; font-weight: 700;
+  color: #fff; text-decoration: none; pointer-events: all;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  display: flex; align-items: center; gap: 9px;
+}
+.nav-brand em { color: var(--gold); font-style: normal; }
+.nav-logo { height: 28px; width: auto; flex-shrink: 0; }
+
+/* nav dots — right side */
+.nav-dots {
+  position: fixed; right: 20px; top: 50%; transform: translateY(-50%);
+  z-index: 200; display: flex; flex-direction: column; gap: 10px;
+}
+.nd {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: rgba(255,255,255,0.2); cursor: pointer;
+  transition: background 0.25s, transform 0.25s;
+  border: none; padding: 0;
+}
+.nd.active, .nd:hover { background: var(--gold); transform: scale(1.35); }
+
+/* ── HERO ── */
+.hero {
+  scroll-snap-align: start;
+  background: var(--ink); min-height: 100vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 80px 40px;
+  position: relative; overflow: hidden;
+}
+/* Timbre / sello — invertido para ser visible sobre fondo negro */
+.hero::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background-image: url('lacortedice-webapp/static/images/timbre.svg');
+  background-size: 62%; background-position: center center; background-repeat: no-repeat;
+  opacity: 0.30;
+  filter: invert(1);
+}
+/* Viñeta radial dorada */
+.hero::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 60% at 70% 30%, rgba(201,168,76,0.1) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 40% at 15% 75%, rgba(201,168,76,0.06) 0%, transparent 55%);
+}
+.hero > * { position: relative; z-index: 1; }
+.hero-logo {
+  width: clamp(90px, 11vw, 100px); height: auto;
+  margin-bottom: 28px; filter: drop-shadow(0 4px 20px rgba(0,0,0,0.6));
+}
+.hero-eyebrow {
+  font-size: 10.5px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.14em; color: var(--gold);
+  border: 1px solid rgba(201,168,76,0.3);
+  padding: 5px 18px; border-radius: 20px; margin-bottom: 36px;
+  display: inline-block;
+}
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(60px, 10vw, 110px);
+  font-weight: 700; line-height: 0.92; color: #fff; margin-bottom: 28px;
+}
+.hero h1 em { color: var(--gold); font-style: normal; display: block; }
+.hero-sub {
+  font-family: var(--serif); font-size: clamp(17px, 2vw, 22px);
+  font-style: italic; color: rgba(255,255,255,0.48);
+  max-width: 520px; margin: 0 auto 64px; line-height: 1.5;
+}
+.hero-stats {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  border: 1px solid rgba(201,168,76,0.2); border-radius: 14px;
+  overflow: hidden; background: rgba(255,255,255,0.025);
+}
+.hs { padding: 20px 36px; border-right: 1px solid rgba(201,168,76,0.12); }
+.hs:last-child { border-right: none; }
+.hs-n { font-family: var(--serif); font-size: clamp(28px,4vw,46px); font-weight: 700; color: var(--gold); line-height: 1; display: block; }
+.hs-l { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.09em; color: rgba(255,255,255,0.32); display: block; margin-top: 4px; }
+.hero-cta {
+  margin-top: 48px; display: flex; align-items: center; justify-content: center; gap: 7px;
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.3); cursor: pointer; background: none; border: none;
+}
+.hero-arrow {
+  width: 17px; height: 17px;
+  border-right: 1.5px solid rgba(255,255,255,0.3);
+  border-bottom: 1.5px solid rgba(255,255,255,0.3);
+  transform: rotate(45deg); animation: bounce 2s infinite;
+}
+@keyframes bounce {
+  0%,100% { transform: rotate(45deg) translateY(0); }
+  50%      { transform: rotate(45deg) translateY(5px); }
+}
+
+/* ── SCENE — video al 86% con margen visible ── */
+.scene {
+  scroll-snap-align: start;
+  min-height: 100vh;
+  background: var(--ink);
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+
+/* marco que contiene el video */
+.scene-frame {
+  position: relative;
+  width: 86%;
+  height: 84vh;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 24px 72px rgba(0,0,0,0.7);
+}
+
+.scene-frame video,
+.scene-frame img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+  display: block;
+}
+
+/* viñeta suave */
+.vignette {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(to bottom,  rgba(0,0,0,0.45) 0%, transparent 18%),
+    linear-gradient(to top,     rgba(0,0,0,0.65) 0%, transparent 48%),
+    linear-gradient(to right,   rgba(0,0,0,0.35) 0%, transparent 30%),
+    linear-gradient(to left,    rgba(0,0,0,0.25) 0%, transparent 25%);
+}
+
+/* texto superpuesto — posicionado en la esquina de la SECCIÓN (fuera del frame) */
+.scene-copy {
+  position: absolute; z-index: 10;
+  bottom: 36px; left: 36px; max-width: 400px;
+  pointer-events: none;
+}
+.scene-copy.right {
+  left: auto; right: 36px; text-align: right;
+}
+
+.sc-label {
+  display: inline-block; font-size: 11px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 0.14em; color: var(--gold);
+  margin-bottom: 8px;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.8);
+}
+.sc-title {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.5vw, 34px);
+  font-weight: 700; line-height: 1.1; color: #fff;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.8);
+}
+.sc-body {
+  font-size: 13.5px; line-height: 1.6; font-weight: 700;
+  color: rgba(255,255,255,0.82);
+  margin-bottom: 12px;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.9);
+}
+.sc-bullets { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+.sc-bullets li {
+  font-size: 12.5px; font-weight: 800;
+  color: rgba(255,255,255,0.72);
+  padding-left: 14px; position: relative; line-height: 1.4;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.9);
+}
+.sc-bullets li::before {
+  content: '›'; position: absolute; left: 1px;
+  color: var(--gold); font-size: 14px; line-height: 1;
+}
+.sc-bullets.right-list li { padding-left: 0; padding-right: 14px; }
+.sc-bullets.right-list li::before { left: auto; right: 1px; }
+
+/* número de sección — decorativo */
+.sc-num {
+  position: absolute; top: 16px; right: 24px; z-index: 10;
+  font-family: var(--serif); font-size: 80px; font-weight: 700;
+  color: rgba(255,255,255,0.07); line-height: 1; user-select: none;
+  text-shadow: none; pointer-events: none;
+}
+
+/* ── PLACEHOLDER — mientras se graba ── */
+.placeholder-scene {
+  scroll-snap-align: start;
+  min-height: 100vh; background: #0a0a0a;
+  display: flex; align-items: center; justify-content: center;
+  border-top: 1px solid rgba(201,168,76,0.08);
+}
+.ph-box {
+  width: 86%; height: 84vh;
+  border: 1px dashed rgba(201,168,76,0.25);
+  border-radius: 14px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 14px; text-align: center; padding: 40px;
+}
+.ph-box-label {
+  font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.14em; color: rgba(201,168,76,0.5);
+}
+.ph-box-title {
+  font-family: var(--serif); font-size: clamp(28px,4vw,48px);
+  font-weight: 700; color: rgba(255,255,255,0.15); line-height: 1.1;
+}
+.ph-box-note { font-size: 12px; color: rgba(255,255,255,0.2); line-height: 1.6; }
+
+/* ── PARA EL TRIBUNAL ── */
+.tribunal-sec {
+  scroll-snap-align: start;
+  background: #080808;
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 80px 52px;
+  border-top: 1px solid rgba(201,168,76,0.1);
+}
+.trib-inner { max-width: 1100px; margin: 0 auto; width: 100%; }
+.trib-header { margin-bottom: 52px; }
+.trib-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.trib-card {
+  padding: 28px; background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(201,168,76,0.14);
+  border-left: 4px solid var(--gold);
+  border-radius: 0 12px 12px 0;
+}
+.trib-t { font-family: var(--serif); font-size: 19px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+.trib-b { font-size: 13.5px; color: rgba(255,255,255,0.48); line-height: 1.6; }
+
+/* ── CIERRE ── */
+.cierre {
+  scroll-snap-align: start;
+  background: var(--ink); min-height: 100vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 80px 40px;
+  position: relative; overflow: hidden;
+}
+.cierre::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 60% 50% at 50% 10%, rgba(201,168,76,0.08) 0%, transparent 70%);
+}
+.cierre > * { position: relative; z-index: 1; }
+.cierre-logo { width: 88px; height: auto; margin-bottom: 32px; filter: drop-shadow(0 4px 24px rgba(0,0,0,0.5)); }
+.cierre h2 { font-family: var(--serif); font-size: clamp(40px,6.5vw,76px); font-weight: 700; color: #fff; line-height: 1.0; margin-bottom: 20px; }
+.cierre h2 em { color: var(--gold); font-style: normal; }
+.cierre p  { font-size: 15px; color: rgba(255,255,255,0.38); max-width: 420px; margin: 0 auto 44px; line-height: 1.7; }
+.cierre-url {
+  display: inline-block; font-family: var(--serif); font-size: 21px;
+  font-weight: 700; font-style: italic; color: var(--gold);
+  border: 1.5px solid rgba(201,168,76,0.45); padding: 14px 44px;
+  border-radius: 8px; text-decoration: none; transition: all 0.2s;
+}
+.cierre-url:hover { background: rgba(201,168,76,0.08); border-color: var(--gold); }
+.cierre-foot {
+  margin-top: 52px; padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.17);
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .scene-frame { width: 94%; height: 70vh; }
+  .scene-copy  { bottom: 20px; left: 20px; max-width: 280px; }
+  .scene-copy.right { left: 20px; right: auto; text-align: left; }
+  .trib-grid   { grid-template-columns: 1fr; }
+  .tribunal-sec { padding: 60px 24px; }
+  .nav-dots    { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="#s0">
+    <img class="nav-logo" src="https://lacortedicetributaria.com/assets/logo-buho.png" alt="logo">
+    #LaCorteDice <em>Tributaria</em>
+  </a>
+</nav>
+<div class="nav-dots" id="navDots"></div>
+
+
+<!-- ═══════════════════════════════════════
+     0. HERO
+════════════════════════════════════════ -->
+<section class="hero" id="s0" data-label="Inicio">
+  <img class="hero-logo" src="https://lacortedicetributaria.com/assets/logo-buho.png" alt="LaCorteDice Tributaria">
+  <span class="hero-eyebrow">Repositorio Tributario</span>
+  <h1>#LaCorteDice<em>Tributaria</em></h1>
+  <p class="hero-sub">La jurisprudencia tributaria, sintetizada y estructurada para facilitar el análisis jurídico.</p>
+  <div class="hero-stats">
+    <div class="hs"><span class="hs-n">+3.000</span><span class="hs-l">Causas tributarias con resumen estructurado</span></div>
+    <div class="hs"><span class="hs-n">2020–2025</span><span class="hs-l">Registros de causas desde el año 2020 al 2025</span></div>
+  </div>
+  <button class="hero-cta" onclick="document.getElementById('s1').scrollIntoView({behavior:'smooth'})">
+    continuar <div class="hero-arrow"></div>
+  </button>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     1. INTRO — vista general de la plataforma
+════════════════════════════════════════ -->
+<section class="scene" id="s1" data-label="La plataforma">
+  <div class="scene-frame">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="https://res.cloudinary.com/zpjian5u/video/upload/v1783999162/home_fydsh4.mov" type="video/mp4">
+    </video>
+    <div class="vignette"></div>
+    <div class="sc-num">00</div>
+  </div>
+  <div class="scene-copy">
+    <span class="sc-label">La plataforma</span>
+    <h2 class="sc-title">Repositorio nacional de jurisprudencia contencioso-tributaria.</h2>
+    <p class="sc-body">Reúne y estructura las sentencias emitidas en materia tributaria por los tribunales de instancia y la Corte Nacional de Justicia, facilitando la consulta, el análisis y la identificación de criterios jurisprudenciales.</p>
+    <ul class="sc-bullets">
+      <li>Buscador, filtros y jurimetría en una sola plataforma</li>
+      <li>Datos curados desde fuentes oficiales</li>
+      <li>Actualización continua del repositorio</li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     2. BUSCADOR — búsqueda por texto
+════════════════════════════════════════ -->
+<section class="scene" id="s2" data-label="Buscador">
+  <div class="scene-frame">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="https://res.cloudinary.com/zpjian5u/video/upload/v1783999161/buscador_h3d8wc.mov" type="video/mp4">
+    </video>
+    <div class="vignette"></div>
+    <div class="sc-num">01</div>
+  </div>
+  <div class="scene-copy right">
+    <span class="sc-label">Buscador</span>
+    <h2 class="sc-title">Búsqueda por texto dentro de cada causa</h2>
+    <p class="sc-body">El buscador analiza el contenido íntegro de las sentencias, no solo sus metadatos. Encuentre sentencias por criterios jurídicos, hechos o argumentos desarrollados por el tribunal.</p>
+    <ul class="sc-bullets right-list">
+      <li>Texto libre sobre cualquier campo</li>
+      <li>Resultados ordenados por relevancia</li>
+      <li>Más de 3.000 causas indexadas</li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     3. FILTROS — aplicación en tiempo real
+════════════════════════════════════════ -->
+<section class="scene" id="s3" data-label="Filtros">
+  <div class="scene-frame">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="https://res.cloudinary.com/zpjian5u/video/upload/v1784037047/Grabacio%CC%81n_de_pantalla_2026-07-14_a_la_s_8.50.05_a._m._uuuhp9.mov" type="video/mp4">
+    </video>
+    <div class="vignette"></div>
+    <div class="sc-num">02</div>
+  </div>
+  <div class="scene-copy">
+    <span class="sc-label">Filtros avanzados</span>
+    <h2 class="sc-title">Filtrado dinámico y en tiempo real</h2>
+    <p class="sc-body">El buscador le brinda un sistema rápido de filtros de todos los elementos que contiene el repositorio.</p>
+    <ul class="sc-bullets">
+      <li>SRI · SENAE · GADs</li>
+      <li>Tribunal y juez ponente</li>
+      <li>Con lugar / Sin lugar</li>
+      <li>Rango de cuantía y año</li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     4. DETALLE DE CAUSA — estructura interna
+════════════════════════════════════════ -->
+<section class="scene" id="s4" data-label="Detalle">
+  <div class="scene-frame">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="https://res.cloudinary.com/zpjian5u/video/upload/v1783999166/detalles_zqnsru.mov" type="video/mp4">
+    </video>
+    <div class="vignette"></div>
+    <div class="sc-num">03</div>
+  </div>
+  <div class="scene-copy right">
+    <span class="sc-label">Detalle de causa</span>
+    <h2 class="sc-title">Toda la información relevante de una sentencia, en un solo lugar</h2>
+    <p class="sc-body">Partes, juez, fecha, decisión, jurisprudencia citada y criterios del tribunal, organizados en una ficha estructurada para agilizar el análisis jurídico.</p>
+    <ul class="sc-bullets right-list">
+      <li>Criterio del tribunal en texto completo</li>
+      <li>Jurisprudencia citada en la sentencia</li>
+      <li>Descarga del expediente en PDF</li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     5. VER SIMILARES
+════════════════════════════════════════ -->
+<section class="scene" id="s5" data-label="Similares">
+  <div class="scene-frame">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="https://res.cloudinary.com/zpjian5u/video/upload/v1783999163/similares_plc09h.mov" type="video/mp4">
+    </video>
+    <div class="vignette"></div>
+    <div class="sc-num">04</div>
+  </div>
+  <div class="scene-copy">
+    <span class="sc-label">Causas similares</span>
+    <h2 class="sc-title">Encuentre los precedentes jurídicamente más cercanos</h2>
+    <p class="sc-body">El motor de búsqueda utiliza similitud semántica para identificar sentencias relacionadas por su contenido y razonamiento jurídico, no únicamente por palabras clave.</p>
+    <ul class="sc-bullets">
+      <li>Ranking por similitud.</li>
+      <li>Identificación del tribunal y del resultado.</li>
+      <li>Acceso inmediato al expediente.</li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     6. FALLA TÚ
+════════════════════════════════════════ -->
+<section class="scene" id="s6" data-label="Falla Tú">
+  <div class="scene-frame">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="https://res.cloudinary.com/zpjian5u/video/upload/v1784001164/Grabacio%CC%81n_de_pantalla_2026-07-13_a_la_s_10.50.29_p._m._u1ijgc.mov" type="video/mp4">
+    </video>
+    <div class="vignette"></div>
+    <div class="sc-num">05</div>
+  </div>
+  <div class="scene-copy right">
+    <span class="sc-label">Falla Tú</span>
+    <h2 class="sc-title">¿Cómo fallarías este caso?</h2>
+    <p class="sc-body">Lee una causa real anonimizada, dicta tu decisión y compárala con la sentencia del tribunal. Descubre en qué coincidiste, dónde diferiste y fortalece tu criterio jurídico.</p>
+    <ul class="sc-bullets right-list">
+      <li>Casos reales del repositorio.</li>
+      <li>Emite tu decisión antes de conocer el fallo.</li>
+      <li>Compara tu razonamiento con el del tribunal y mide tu evolución.</li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     8. ANALÍTICA
+════════════════════════════════════════ -->
+<section class="scene" id="s7" data-label="Analítica">
+  <div class="scene-frame">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="https://res.cloudinary.com/zpjian5u/video/upload/v1784026225/analitica_fc1mn3.mov" type="video/mp4">
+    </video>
+    <div class="vignette"></div>
+    <div class="sc-num">06</div>
+  </div>
+  <div class="scene-copy">
+    <span class="sc-label">Analítica</span>
+    <h2 class="sc-title">El repositorio, analizado desde adentro</h2>
+    <p class="sc-body">Explora el repositorio como sistema: quién demanda a quién, en qué tribunales, con qué tasas de éxito y cómo ha evolucionado en el tiempo.</p>
+    <ul class="sc-bullets">
+      <li>Perfil por entidad, tribunal y juez</li>
+      <li>Evolución anual del volumen de causas</li>
+      <li>Cruces: causal × categoría × tribunal</li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     9. JURIMETRÍA
+════════════════════════════════════════ -->
+<section class="scene" id="s8" data-label="Jurimetría">
+  <div class="scene-frame">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="https://res.cloudinary.com/zpjian5u/video/upload/v1784036166/Grabacio%CC%81n_de_pantalla_2026-07-14_a_la_s_8.34.57_a._m._wlhdwa.mov" type="video/mp4">
+    </video>
+    <div class="vignette"></div>
+    <div class="sc-num">07</div>
+  </div>
+  <div class="scene-copy right">
+    <span class="sc-label">Jurimetría · IA</span>
+    <h2 class="sc-title">Tu tendencia a prosperar, calculada sobre casos reales</h2>
+    <p class="sc-body">Describe los hechos y el sistema encuentra los casos más parecidos del repositorio. La IA evalúa tu estrategia contra lo que realmente funcionó.</p>
+    <ul class="sc-bullets right-list">
+      <li>Probabilidad de éxito con rango estadístico</li>
+      <li>Argumentos prioritarios fundados en precedentes</li>
+      <li>Veredicto sobre tu estrategia generado por IA</li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     10. PARA EL TRIBUNAL
+════════════════════════════════════════ -->
+<section class="tribunal-sec" id="s9" data-label="Institución">
+  <div class="trib-inner">
+    <div class="trib-header">
+      <p class="sc-label" style="font-size:11px;">Para la institución</p>
+      <h2 style="font-family:var(--serif); font-size:clamp(30px,4vw,50px); font-weight:700; color:#fff; line-height:1.1; max-width:600px; margin-bottom:14px;">
+        Un ecosistema más preparado beneficia a toda la justicia tributaria
+      </h2>
+      <p style="font-size:15px; color:rgba(255,255,255,0.42); max-width:520px; line-height:1.7;">
+        Cuando los abogados llegan mejor fundamentados, las audiencias son más eficientes y las resoluciones más sólidas.
+      </p>
+    </div>
+    <div class="trib-grid">
+      <div class="trib-card">
+        <p class="trib-t">Abogados que conocen los precedentes</p>
+        <p class="trib-b">Los litigantes que usan la plataforma llegan con conocimiento real de la línea jurisprudencial del tribunal — menos improvisación, más sustento.</p>
+      </div>
+      <div class="trib-card">
+        <p class="trib-t">Visibilidad de la jurisprudencia institucional</p>
+        <p class="trib-b">La plataforma organiza el criterio del tribunal a lo largo del tiempo, reforzando la coherencia y predictibilidad de sus decisiones.</p>
+      </div>
+      <div class="trib-card">
+        <p class="trib-t">Herramienta de consulta interna</p>
+        <p class="trib-b">El equipo puede revisar antecedentes, verificar criterios anteriores y apoyar la fundamentación de nuevas resoluciones.</p>
+      </div>
+      <div class="trib-card">
+        <p class="trib-t">Potencial de alianza institucional</p>
+        <p class="trib-b">Abierto a convenios para enriquecer el repositorio, garantizar su actualización y brindar acceso prioritario a operadores de justicia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     10. CIERRE
+════════════════════════════════════════ -->
+<section class="cierre" id="s10" data-label="Acceso">
+  <img class="cierre-logo" src="https://lacortedicetributaria.com/assets/logo-buho.png" alt="LaCorteDice Tributaria">
+  <h2>La jurisprudencia tributaria<br><em>al alcance de quien litiga</em></h2>
+  <p>Contactanos para acceder a todas nuestras funciones. Sin instalación, desde cualquier dispositivo.</p>
+  <a class="cierre-url" href="https://lacortedicetributaria.com" target="_blank">lacortedicetributaria.com</a>
+  <p class="cierre-foot">
+    SRI &nbsp;·&nbsp; SENAE &nbsp;·&nbsp; Gobiernos Autónomos Descentralizados &nbsp;·&nbsp;
+    Corte Nacional de Justicia &nbsp;·&nbsp; Tribunales Distritales de lo Contencioso Tributario
+  </p>
+</section>
+
+
+<script>
+// Nav dots
+const sections = Array.from(document.querySelectorAll('[data-label]'));
+const dotsWrap = document.getElementById('navDots');
+
+sections.forEach(sec => {
+  const btn = document.createElement('button');
+  btn.className = 'nd';
+  btn.title = sec.dataset.label;
+  btn.onclick = () => sec.scrollIntoView({ behavior: 'smooth' });
+  dotsWrap.appendChild(btn);
+});
+
+const dots = Array.from(dotsWrap.querySelectorAll('.nd'));
+
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const idx = sections.indexOf(e.target);
+      dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    }
+  });
+}, { threshold: 0.5 });
+
+sections.forEach(s => io.observe(s));
+
+// Reproducir solo el video visible + playbackRate según sección
+const speedMap = { 's8': 1.8 };  // jurimetría a 1.8×, el resto a 1.5×
+
+const vo = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    const vid = e.target.querySelector('video');
+    if (!vid) return;
+    const rate = speedMap[e.target.id] || 1.5;
+    if (e.isIntersecting) {
+      vid.playbackRate = rate;
+      vid.play().catch(() => {});
+    } else {
+      vid.pause();
+    }
+  });
+}, { threshold: 0.3 });
+
+sections.forEach(s => vo.observe(s));
+
+// Asegurar velocidad correcta también al cargar
+sections.forEach(s => {
+  const vid = s.querySelector('video');
+  if (!vid) return;
+  const rate = speedMap[s.id] || 1.5;
+  vid.playbackRate = rate;
+  vid.addEventListener('loadedmetadata', () => { vid.playbackRate = rate; });
+});
+</script>
+
+</body>
+</html>
