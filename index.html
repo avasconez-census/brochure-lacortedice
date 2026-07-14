@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+=<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -200,6 +200,21 @@ nav {
 .sc-bullets.right-list li { padding-left: 0; padding-right: 14px; }
 .sc-bullets.right-list li::before { left: auto; right: 1px; }
 
+/* badge premium */
+.premium-badge {
+  display: block;
+  font-size: 9px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 0.13em;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  background: #0d0d0d;
+  padding: 3px 10px; border-radius: 20px;
+  margin-bottom: 10px;
+  text-shadow: none;
+  width: fit-content;
+}
+.scene-copy.right .premium-badge { margin-left: auto; }
+
 /* número de sección — decorativo */
 .sc-num {
   position: absolute; top: 16px; right: 24px; z-index: 10;
@@ -327,15 +342,39 @@ nav {
 
 
 <!-- ═══════════════════════════════════════
-     1. INTRO — vista general de la plataforma
+     1. DETALLE DE CAUSA — estructura interna
 ════════════════════════════════════════ -->
-<section class="scene" id="s1" data-label="La plataforma">
+<section class="scene" id="s1" data-label="Detalle">
   <div class="scene-frame">
     <video autoplay muted loop playsinline preload="metadata">
-      <source src="https://res.cloudinary.com/zpjian5u/video/upload/v1783999162/home_fydsh4.mov" type="video/mp4">
+      <source src="https://res.cloudinary.com/zpjian5u/video/upload/v1783999166/detalles_zqnsru.mov" type="video/mp4">
     </video>
     <div class="vignette"></div>
     <div class="sc-num">00</div>
+  </div>
+  <div class="scene-copy right">
+    <span class="sc-label">Detalle de causa</span>
+    <h2 class="sc-title">Toda la información relevante de una sentencia, en un solo lugar</h2>
+    <p class="sc-body">Partes, juez, fecha, decisión, jurisprudencia citada y criterios del tribunal, organizados en una ficha estructurada para agilizar el análisis jurídico.</p>
+    <ul class="sc-bullets right-list">
+      <li>Criterio del tribunal en texto completo</li>
+      <li>Jurisprudencia citada en la sentencia</li>
+      <li>Descarga del expediente en PDF</li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     2. INTRO — vista general de la plataforma
+════════════════════════════════════════ -->
+<section class="scene" id="s2" data-label="La plataforma">
+  <div class="scene-frame">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="https://res.cloudinary.com/zpjian5u/video/upload/v1784061723/Grabacio%CC%81n_de_pantalla_2026-07-14_a_la_s_3.41.39_p._m._gotvyi.mov" type="video/mp4">
+    </video>
+    <div class="vignette"></div>
+    <div class="sc-num">01</div>
   </div>
   <div class="scene-copy">
     <span class="sc-label">La plataforma</span>
@@ -351,15 +390,15 @@ nav {
 
 
 <!-- ═══════════════════════════════════════
-     2. BUSCADOR — búsqueda por texto
+     3. BUSCADOR — búsqueda por texto
 ════════════════════════════════════════ -->
-<section class="scene" id="s2" data-label="Buscador">
+<section class="scene" id="s3" data-label="Buscador">
   <div class="scene-frame">
     <video autoplay muted loop playsinline preload="metadata">
       <source src="https://res.cloudinary.com/zpjian5u/video/upload/v1783999161/buscador_h3d8wc.mov" type="video/mp4">
     </video>
     <div class="vignette"></div>
-    <div class="sc-num">01</div>
+    <div class="sc-num">02</div>
   </div>
   <div class="scene-copy right">
     <span class="sc-label">Buscador</span>
@@ -375,15 +414,15 @@ nav {
 
 
 <!-- ═══════════════════════════════════════
-     3. FILTROS — aplicación en tiempo real
+     4. FILTROS — aplicación en tiempo real
 ════════════════════════════════════════ -->
-<section class="scene" id="s3" data-label="Filtros">
+<section class="scene" id="s4" data-label="Filtros">
   <div class="scene-frame">
     <video autoplay muted loop playsinline preload="metadata">
       <source src="https://res.cloudinary.com/zpjian5u/video/upload/v1784037047/Grabacio%CC%81n_de_pantalla_2026-07-14_a_la_s_8.50.05_a._m._uuuhp9.mov" type="video/mp4">
     </video>
     <div class="vignette"></div>
-    <div class="sc-num">02</div>
+    <div class="sc-num">03</div>
   </div>
   <div class="scene-copy">
     <span class="sc-label">Filtros avanzados</span>
@@ -394,30 +433,6 @@ nav {
       <li>Tribunal y juez ponente</li>
       <li>Con lugar / Sin lugar</li>
       <li>Rango de cuantía y año</li>
-    </ul>
-  </div>
-</section>
-
-
-<!-- ═══════════════════════════════════════
-     4. DETALLE DE CAUSA — estructura interna
-════════════════════════════════════════ -->
-<section class="scene" id="s4" data-label="Detalle">
-  <div class="scene-frame">
-    <video autoplay muted loop playsinline preload="metadata">
-      <source src="https://res.cloudinary.com/zpjian5u/video/upload/v1783999166/detalles_zqnsru.mov" type="video/mp4">
-    </video>
-    <div class="vignette"></div>
-    <div class="sc-num">03</div>
-  </div>
-  <div class="scene-copy right">
-    <span class="sc-label">Detalle de causa</span>
-    <h2 class="sc-title">Toda la información relevante de una sentencia, en un solo lugar</h2>
-    <p class="sc-body">Partes, juez, fecha, decisión, jurisprudencia citada y criterios del tribunal, organizados en una ficha estructurada para agilizar el análisis jurídico.</p>
-    <ul class="sc-bullets right-list">
-      <li>Criterio del tribunal en texto completo</li>
-      <li>Jurisprudencia citada en la sentencia</li>
-      <li>Descarga del expediente en PDF</li>
     </ul>
   </div>
 </section>
@@ -483,6 +498,7 @@ nav {
     <div class="sc-num">06</div>
   </div>
   <div class="scene-copy">
+    <span class="premium-badge">Usuario Premium</span>
     <span class="sc-label">Analítica</span>
     <h2 class="sc-title">El repositorio, analizado desde adentro</h2>
     <p class="sc-body">Explora el repositorio como sistema: quién demanda a quién, en qué tribunales, con qué tasas de éxito y cómo ha evolucionado en el tiempo.</p>
@@ -507,6 +523,7 @@ nav {
     <div class="sc-num">07</div>
   </div>
   <div class="scene-copy right">
+    <span class="premium-badge">Usuario Premium</span>
     <span class="sc-label">Jurimetría · IA</span>
     <h2 class="sc-title">Tu tendencia a prosperar, calculada sobre casos reales</h2>
     <p class="sc-body">Describe los hechos y el sistema encuentra los casos más parecidos del repositorio. La IA evalúa tu estrategia contra lo que realmente funcionó.</p>
